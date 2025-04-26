@@ -20,7 +20,6 @@ permalink: /tags/
             {{ tag[0] }}
           {% endif %}
         </span>
-{% assign tag_mapping = {"tag1": "林夕", "tag2": "黄伟文", "tag3": "Gins Pak"} %}
 <span>
   {% assign display_tag = tag_mapping[tag[0]] | default: tag[0] %}
   {{ display_tag }}
