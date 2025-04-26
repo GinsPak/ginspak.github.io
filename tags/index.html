@@ -20,10 +20,6 @@ permalink: /tags/
             {{ tag[0] }}
           {% endif %}
         </span>
-<span>
-  {% assign display_tag = tag_mapping[tag[0]] | default: tag[0] %}
-  {{ display_tag }}
-</span>
         <span class="count">{{ tag[1] | size }}</span>
       </a>
     </li>
