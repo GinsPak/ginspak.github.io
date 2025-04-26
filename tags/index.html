@@ -25,7 +25,20 @@ permalink: /tags/
     </li>
     {% endfor %}
   </ul>
-
+{% for tag in site.tags %}
+  <li>
+    <a href="#{{ tag[0] }}">
+      <span>
+        {% if tag[0] == "tag2" %}
+          黄伟文
+        {% else %}
+          {{ tag[0] }}
+        {% endif %}
+      </span>
+      <span class="count">{{ tag[1] | size }}</span>
+    </a>
+  </li>
+{% endfor %}
   {% for tag in site.tags %}
     <h2 id="{{ tag[0] }}">
       {{ tag[0] }}
