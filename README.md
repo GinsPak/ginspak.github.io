@@ -1,3 +1,3 @@
-# pianfan.github.io
+# GinsPak.github.io
 
 My Personal Blog via GitHub
