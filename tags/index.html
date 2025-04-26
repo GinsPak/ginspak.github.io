@@ -20,6 +20,13 @@ permalink: /tags/
             {{ tag[0] }}
           {% endif %}
         </span>
+        <span>
+          {% if tag[0] == "tag2" %}
+            黄伟文
+          {% else %}
+            {{ tag[0] }}
+          {% endif %}
+        </span>
         <span class="count">{{ tag[1] | size }}</span>
       </a>
     </li>
