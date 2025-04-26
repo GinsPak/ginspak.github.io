@@ -16,6 +16,8 @@ permalink: /tags/
         <span>
           {% if tag[0] == 'tag1' %}
             林夕
+          {% elsif tag[0] == "tag2" %}
+            黄伟文
           {% else %}
             {{ tag[0] }}
           {% endif %}
@@ -25,18 +27,6 @@ permalink: /tags/
     </li>
     {% endfor %}
   </ul>
-  <li>
-    <a href="#{{ tag[0] }}">
-      <span>
-        {% if tag[0] == "tag2" %}
-          黄伟文
-        {% else %}
-          {{ tag[0] }}
-        {% endif %}
-      </span>
-      <span class="count">{{ tag[1] | size }}</span>
-    </a>
-  </li>
   {% for tag in site.tags %}
     <h2 id="{{ tag[0] }}">
       {{ tag[0] }}
