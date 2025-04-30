@@ -2,29 +2,24 @@
 layout: default
 ---
 
-<article class="posts">
-  
-  <h1>{{ page.title }}</h1>
+<article class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
 
-  <div clsss="meta">
-    <span class="date">
-      {{ page.date | date: "%Y-%m-%d" }}
-    </span>
+  <div class="post-meta">
+    <span class="post-date">{{ page.date | date: "%Y-%m-%d" }}</span>
 
-    <ul class="tag">
+    {% if page.tags %}
+    <ul class="post-tags">
       {% for tag in page.tags %}
       <li>
-        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">
-          {{ tag }}
-        </a>
+        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">{{ tag }}</a>
       </li>
       {% endfor %}
     </ul>
+    {% endif %}
   </div>
 
-
-  
-  <div class="entry">
+  <div class="post-content">
     {{ content }}
   </div>
 
@@ -34,17 +29,13 @@ layout: default
 
 <div class="pagination">
   {% if page.previous.url %}
-    <span class="prev" >
-      <a href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
-        ← 上一篇
-      </a>
-    </span>
+  <span class="prev">
+    <a href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">← 上一篇</a>
+  </span>
   {% endif %}
   {% if page.next.url %}
-    <span class="next" >
-      <a href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
-        下一篇 →
-      </a>
-    </span>
+  <span class="next">
+    <a href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">下一篇 →</a>
+  </span>
   {% endif %}
 </div>
