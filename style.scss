@@ -727,3 +727,62 @@ footer {
 //@import "gitalk";
 
 
+/* Narrow the content and center it */
+.post-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Title Styling */
+.post-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+/* Meta info */
+.post-meta {
+  font-size: 0.875rem;
+  color: #888;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.post-category, .post-author {
+  background: #f1f1f1;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Post content typography */
+.post-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  color: #333;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #666;
+  font-style: italic;
+}
+
+/* Optional: responsive adjustments */
+@media (max-width: 768px) {
+  .post-container {
+    padding: 1rem;
+  }
+
+  .post-title {
+    font-size: 1.75rem;
+  }
+}
