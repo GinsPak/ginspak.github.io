@@ -2,9 +2,10 @@
 layout: default
 ---
 
-<article class="post">
+<article class="post post-type-{{ page.type | default: 'article' }}">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
+
     <div class="post-meta">
       <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
         {{ page.date | date: "%Y-%m-%d" }}
@@ -31,7 +32,7 @@ layout: default
 </article>
 
 {% if page.previous or page.next %}
-<nav class="pagination" aria-label="Post navigation">
+<nav class="pagination" aria-label="Post Navigation">
   {% if page.previous %}
   <span class="prev">
     <a href="{{ site.baseurl }}{{ page.previous.url }}">← 上一篇</a>
