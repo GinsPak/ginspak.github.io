@@ -3,39 +3,44 @@ layout: default
 ---
 
 <article class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y-%m-%d" }}
+      </time>
 
-  <div class="post-meta">
-    <span class="post-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+      {% if page.tags %}
+      <ul class="post-tags" aria-label="Tags">
+        {% for tag in page.tags %}
+        <li>
+          <a href="{{ site.baseurl }}/tags#{{ tag | slugify }}">{{ tag }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </header>
 
-    {% if page.tags %}
-    <ul class="post-tags">
-      {% for tag in page.tags %}
-      <li>
-        <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">{{ tag }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  </div>
-
-  <div class="post-content">
+  <section class="post-content">
     {{ content }}
-  </div>
+  </section>
 
   {% include disqus.html %}
   {% include gitalk.html %}
 </article>
 
-<div class="pagination">
-  {% if page.previous.url %}
+{% if page.previous or page.next %}
+<nav class="pagination" aria-label="Post navigation">
+  {% if page.previous %}
   <span class="prev">
-    <a href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">← 上一篇</a>
+    <a href="{{ site.baseurl }}{{ page.previous.url }}">← 上一篇</a>
   </span>
   {% endif %}
-  {% if page.next.url %}
+  {% if page.next %}
   <span class="next">
-    <a href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">下一篇 →</a>
+    <a href="{{ site.baseurl }}{{ page.next.url }}">下一篇 →</a>
   </span>
   {% endif %}
-</div>
+</nav>
+{% endif %}
